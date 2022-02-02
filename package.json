@@ -8,13 +8,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dayjs": "^1.10.7",
     "next": "12.0.10",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-google-charts": "^4.0.0",
+    "zeroise": "^0.1.0",
+    "zeropad": "^1.1.0"
   },
   "devDependencies": {
     "@types/node": "17.0.14",
     "@types/react": "17.0.38",
+    "axios": "^0.25.0",
     "eslint": "8.8.0",
     "eslint-config-next": "12.0.10",
     "typescript": "4.5.5"
