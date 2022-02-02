@@ -4,12 +4,14 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import axios from "axios";
 import dayjs from 'dayjs';
+// @ts-ignore
 import zeropad from 'zeropad';
 import timezone from 'dayjs/plugin/timezone';
 import { Chart } from "react-google-charts";
 
 
 const Home: NextPage = (props) => {
+
     return (
         <div className={styles.container}>
             <Head>
@@ -22,6 +24,7 @@ const Home: NextPage = (props) => {
                 <h1>Precio de la electricidad para hoy en tiempo real (bueno, cada hora)</h1>
                 <Chart
                     chartType="LineChart"
+                    // @ts-ignore
                     data={[["Hora", "Precio"], ...props.response]}
                     width="100%"
                     height="400px"
@@ -54,6 +57,7 @@ export const getStaticProps = async () => {
     dayjs.extend(timezone)
     dayjs.tz.setDefault('Europe/Madrid')
 
+    // @ts-ignore
     const data = response.data.included[0].attributes.values.map(({value, datetime}) => {
         return [`${zeropad(dayjs(datetime).get('h'))}:${zeropad(dayjs(datetime).get('m'))}`, value];
     })
